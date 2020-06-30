@@ -1,0 +1,11 @@
+server:
+  port: 7476
+  
+spring:
+  application:
+    name: orderclient
+           
+order:
+    service:
+        url: http://localhost:7475
+                  
