@@ -24,12 +24,8 @@ import tqa.demo.order.entity.Status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-//@AutoConfigureStubRunner(stubsMode = StubRunnerProperties.StubsMode.LOCAL, ids="tqa.demo:order:0.0.1-SNAPSHOT:stubs:7475")
-//provider stub이 nexus에 등록되어 있었다면, pom.xml에서 dependency설정했으므로, 이미 classpath에 다운로드 되어 있는 경우이므로 classpath방식으로 stubRunner설정
 @AutoConfigureStubRunner(ids="tqa.demo:order:+:stubs:7475")
 @AutoConfigureJsonTesters
-//@EnableAutoConfiguration
-//@DirtiesContext
 public class OrderClientServiceTest {
 	
 	@Autowired
@@ -69,8 +65,9 @@ public class OrderClientServiceTest {
 		assertThat(this.orderDTOJson.write(actual)).hasJsonPath("@.orderedDate");
 		assertThat(this.orderDTOJson.write(actual)).hasJsonPath("@.updatedDate");
 		assertThat(this.orderDTOJson.write(actual)).hasJsonPath("@.status");
-		assertThat(this.orderDTOJson.write(actual)).hasJsonPath("@.orderedProducts");
-		assertThat(this.orderDTOJson.write(actual)).hasJsonPath("@.shippingAddress");
+		//consumer가 필요한 송수신 scheme만 검증하기 위해 주석처리해봄
+//		assertThat(this.orderDTOJson.write(actual)).hasJsonPath("@.orderedProducts");
+//		assertThat(this.orderDTOJson.write(actual)).hasJsonPath("@.shippingAddress");
 	}
 
 }

@@ -80,6 +80,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
+        <!-- application.yml에 datasource관련 설정이 없으면, default로 embedded db 로딩하는 config가 실행되어 에러 피하기 위해 일부러 H2를 scope없이 설정 -->
+        <dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+        
 		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-loadbalancer -->
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
